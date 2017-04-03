@@ -1,10 +1,8 @@
-from datetime import datetime
 import pandas as pd
 from pandas_datareader import data,wb
 from yahoo_finance import Share
 
-
-class PandasDataFetcher:
+class YahooDataFetcher:
     #grabs price data on chosen stocks on a specified interval and price type (open, adj_close, etc.)
     @staticmethod
     def fetch_data_pandas(stocks, ls_key, start, end):
@@ -25,6 +23,7 @@ class PandasDataFetcher:
     def fetch_data_yahoo(stocks, price_type, start, end):
         daily_price_data = {}
         for stock in stocks:
+            print("Fetching data for: " + stock)
             share = Share(stock)
             # dates already return in most recent to leasr recent order
             all_stock_data = Share.get_historical(share, start, end)
