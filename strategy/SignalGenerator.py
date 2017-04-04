@@ -47,8 +47,9 @@ class SignalGenerator:
         combined_signals = {}
         for stock in self.stocks:
             combined_signals[stock] = self.momentum_weight * momentum_signals[stock] + self.jump_weight * jump_signals[stock]
-
         self.write_dict_to_file(momentum_signals, "combined_signals.txt", False)
+
+        return combined_signals
 
     def get_daily_returns(self, daily_price_data):
         daily_returns = {}
@@ -120,6 +121,6 @@ class SignalGenerator:
 
 
 
-gen = SignalGenerator(['CSCO', 'WMT', 'PG', 'MRK', 'PFE', 'XOM', 'IBM', 'CAT', 'CVX', 'VZ', 'AAPL', 'GOOG', 'GG','SSRI', 'TGT', 'AMD', 'BAC', 'MSFT', 'F', 'BBRY', 'MDCO', 'AAOI', 'CLVS', 'BLUE', 'ALNY'],
-                      'Adj_Close','2016-01-01','2017-03-04',0.8,0.2)
-gen.generateSignals()
+# gen = SignalGenerator(['CSCO', 'WMT', 'PG', 'MRK', 'PFE', 'XOM', 'IBM', 'CAT', 'CVX', 'VZ', 'AAPL', 'GOOG', 'GG','SSRI', 'TGT', 'AMD', 'BAC', 'MSFT', 'F', 'BBRY', 'MDCO', 'AAOI', 'CLVS', 'BLUE', 'ALNY'],
+#                       'Adj_Close','2016-01-01','2017-03-04',0.8,0.2)
+# gen.generateSignals()

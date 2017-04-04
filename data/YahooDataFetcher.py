@@ -1,3 +1,5 @@
+from pprint import pprint
+
 import pandas as pd
 from pandas_datareader import data,wb
 from yahoo_finance import Share
@@ -29,6 +31,7 @@ class YahooDataFetcher:
             all_stock_data = Share.get_historical(share, start, end)
             daily_prices = []
             for day in all_stock_data:
+                #print(day['Date'])
                 daily_prices.append(day[price_type])
             daily_price_data[stock] = daily_prices
         return daily_price_data
