@@ -23,3 +23,9 @@ AAOI
 CLVS
 BLUE
 ALNY
+Shares to sell for TGT: -41
+Shares to sell for XOM: -21
+Shares to sell for F: -122
+Shares to sell for SSRI: -20
+Shares to sell for CVX: -25
+Shares to sell for IBM: -2

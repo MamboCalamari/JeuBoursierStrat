@@ -31,7 +31,7 @@ class YahooDataFetcher:
             all_stock_data = Share.get_historical(share, start, end)
             daily_prices = []
             for day in all_stock_data:
-                #print(day['Date'])
+                #TODO check if most recent date is still there
                 daily_prices.append(day[price_type])
             daily_price_data[stock] = daily_prices
         return daily_price_data

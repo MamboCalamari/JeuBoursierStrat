@@ -37,7 +37,7 @@ class SignalGenerator:
             recent_avg = statistics.mean([daily_returns[stock][0],daily_returns[stock][1]])
             sample_40_days = []
             for i in range(40):
-                sample_40_days.append(daily_returns[stock][i+2])
+                sample_40_days.append(daily_returns[stock][i])
             sample_avg = statistics.mean(sample_40_days)
             jump = (recent_avg-sample_avg)/statistics.stdev(sample_40_days)
             jump_signal = -jump/3.0
@@ -106,7 +106,8 @@ class SignalGenerator:
             stddev_75_day[stock] = stock_75_day_stddev
         return stddev_75_day
 
-    def write_dict_to_file(self, dict, filename, value_is_list):
+    @staticmethod
+    def write_dict_to_file(dict, filename, value_is_list):
         file = open(filename, "w")
         if value_is_list:
             for key in dict.keys():
